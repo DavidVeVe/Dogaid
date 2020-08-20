@@ -1,0 +1,13 @@
+.nav__links {
+  display: flex;
+}
+
+.nav__links li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.nav__links li a {
+  color: #f7f7f7;
+  font-weight: bold;
+}

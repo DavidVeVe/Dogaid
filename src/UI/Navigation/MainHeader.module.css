@@ -1,0 +1,13 @@
+.mainHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #153352;
+}
+
+.nav__wrapper {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
