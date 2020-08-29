@@ -14,9 +14,11 @@ const PetsList = (props) => {
             name={pet.name}
             image={pet.image}
             age={pet.age}
-            helper={pet.helper}
+            rescuer={pet.rescuer}
             about={pet.about}
             className={props.itemClassname}
+            yearsOld={pet.yearsOld}
+            showDescription={props.showDescription}
           />
         );
       })}

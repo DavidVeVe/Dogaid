@@ -1,6 +1,13 @@
 .pets__container {
   width: 100%;
   display: flex;
+  flex-flow: column;
+  align-items: center;
   justify-content: center;
-  background-color: #30517233;
+  background-color: #eeeeee;
+}
+
+.pets__container h1 {
+  color: #ff5722;
+  font-size: 40px;
 }

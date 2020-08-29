@@ -1,0 +1,5 @@
+.usersList {
+  width: 1080px;
+  display: flex;
+  flex-wrap: wrap;
+}

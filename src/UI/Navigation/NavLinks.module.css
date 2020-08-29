@@ -8,6 +8,7 @@
 }
 
 .nav__links li a {
-  color: #f7f7f7;
+  color: #eeeeee;
   font-weight: bold;
+  font-size: 18px;
 }

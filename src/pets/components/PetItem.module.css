@@ -14,6 +14,7 @@
 }
 
 .link {
+  margin-top: 0;
   margin: 20px;
 }
 
@@ -27,9 +28,21 @@
   margin: 2px 0;
 }
 
+.petItem__card h3 {
+  color: #00acb5;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.petItem__card h4 {
+  color: #ff5622c0;
+  font-size: 18x;
+  font-weight: lighter;
+}
+
 .petItem__card h3,
 h4 {
-  font-size: 18px;
+  text-transform: capitalize;
   margin: 5px 0;
 }
 
