@@ -8,7 +8,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
-import styles from "./Auth.module.css";
+// import styles from "./Auth.module.css";
 
 const AuthForm = (props) => {
   const [isLoginMode, setIsLoginMode] = useState(true);

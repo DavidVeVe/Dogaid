@@ -7,7 +7,6 @@ const formReducer = (state, action) => {
 
       for (const inputId in state.inputs) {
         if (!state.inputs[inputId]) {
-          console.log(inputId);
           continue;
         }
         if (inputId === action.payload.inputId) {

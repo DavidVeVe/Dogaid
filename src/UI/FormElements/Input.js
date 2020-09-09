@@ -33,7 +33,7 @@ const Input = (props) => {
 
   useEffect(() => {
     onInput(id, value, isValid);
-  }, [id, onInput, value, isValid]);
+  }, [id, value, isValid, onInput]);
 
   const changeHandler = (e) => {
     dispatch({
@@ -56,9 +56,9 @@ const Input = (props) => {
           id={props.id}
           type={props.type}
           placeholder={props.placeholder}
-          value={inputState.value}
           onChange={changeHandler}
           onBlur={touchHandler}
+          value={inputState.value}
         />
       );
       break;
@@ -68,15 +68,16 @@ const Input = (props) => {
           id={props.id}
           rows={props.rows || 3}
           placeholder={props.placeholder}
-          value={inputState.value}
           onChange={changeHandler}
           onBlur={touchHandler}
+          value={inputState.value}
         />
       );
       break;
     default:
       break;
   }
+
   return (
     <div className={styles.input}>
       {inputElement}

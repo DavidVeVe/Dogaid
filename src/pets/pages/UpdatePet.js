@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
 
-import { useForm } from "../../shared/hooks/form-hook";
 import PETS_DATA from "../../shared/util/Mock/petsData";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
-import styles from "./UpdatePet.module.css";
-import { useParams } from "react-router-dom";
+import { useForm } from "../../shared/hooks/form-hook";
+// import styles from "./UpdatePet.module.css";
 
 const UpdatePet = (props) => {
-  const [isLogin, setIsLogin] = useState(true);
-
   const petId = useParams().petId;
 
   const [formState, inputHandler, setFormData] = useForm(
@@ -36,47 +34,51 @@ const UpdatePet = (props) => {
     false
   );
 
-  const identifiedPet = PETS_DATA.find((p) => p.id === petId);
-
-  console.log(identifiedPet);
+  const identifiedPet = PETS_DATA.find((p) => p.id === +petId);
 
   useEffect(() => {
     if (identifiedPet) {
       setFormData(
         {
           petName: {
-            value: identifiedPet.value,
-            isValid: identifiedPet.isValid,
+            value: identifiedPet.petName,
+            isValid: true,
           },
           age: {
-            value: "",
-            isValid: false,
+            value: identifiedPet.age,
+            isValid: true,
           },
           rescuerName: {
-            value: "",
-            isValid: false,
+            value: identifiedPet.rescuerName,
+            isValid: true,
           },
           petDescription: {
-            value: "",
-            isValid: false,
+            value: identifiedPet.petDescription,
+            isValid: true,
           },
         },
         true
       );
     }
-  }, []);
+  }, [setFormData, identifiedPet]);
 
-  const petUpdateSubmitHandler = () => {
-    console.log(formState.inputs);
-  };
+  // const petUpdateSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   console.log(formState.inputs);
+  // };
+
+  console.log(formState);
+
+  if (!identifiedPet) {
+    return <h1>No hay pets</h1>;
+  }
 
   return (
-    <form action="" onSubmit={petUpdateSubmitHandler}>
+    <form action="">
       <Input
+        id="petName"
         element="input"
         type="text"
-        name="petName"
-        id="petName"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa el nombre de la mascota"
         onInput={inputHandler}
@@ -84,10 +86,9 @@ const UpdatePet = (props) => {
         initialValid={formState.inputs.petName.isValid}
       />
       <Input
+        id="age"
         element="input"
         type="number"
-        name="age"
-        id="age"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa la edad de la mascota"
         onInput={inputHandler}
@@ -95,10 +96,9 @@ const UpdatePet = (props) => {
         initialValid={formState.inputs.age.isValid}
       />
       <Input
+        id="rescuerName"
         element="input"
         type="text"
-        name="rescuerName"
-        id="rescuerName"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa tu nombre"
         onInput={inputHandler}
@@ -106,11 +106,9 @@ const UpdatePet = (props) => {
         initialValid={formState.inputs.rescuerName.isValid}
       />
       <Input
+        id="petDescription"
         element="textarea"
         type="text"
-        name="petDescription"
-        id="petDescription"
-        placeholder="Ingresa la descripción y/o historia del peludo. Ejemplo: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa la descripción y/o historia del peludo"
         onInput={inputHandler}
@@ -118,6 +116,7 @@ const UpdatePet = (props) => {
         initialValid={formState.inputs.petDescription.isValid}
       />
       <Button>Actualizar</Button>
+      <h1>{formState.inputs.petName.value}</h1>
     </form>
   );
 };

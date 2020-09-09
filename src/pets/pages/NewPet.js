@@ -1,10 +1,10 @@
-import React, { useReducer } from "react";
+import React from "react";
 
 import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
-import styles from "./NewPet.module.css";
+// import styles from "./NewPet.module.css";
 
 const NewPet = (props) => {
   const [formState, inputHandler] = useForm(

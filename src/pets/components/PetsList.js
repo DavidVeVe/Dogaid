@@ -11,14 +11,14 @@ const PetsList = (props) => {
           <PetItem
             id={pet.id}
             key={pet.id}
-            name={pet.name}
+            petName={pet.petName}
             image={pet.image}
             age={pet.age}
-            rescuer={pet.rescuer}
+            rescuerName={pet.rescuerName}
             about={pet.about}
             className={props.itemClassname}
             yearsOld={pet.yearsOld}
-            showDescription={props.showDescription}
+            showInfo={props.showInfo}
           />
         );
       })}
