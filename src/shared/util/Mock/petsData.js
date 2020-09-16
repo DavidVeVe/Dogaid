@@ -4,7 +4,7 @@ const petsData = [
     petName: "pet1",
     image:
       "https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "puppy",
+    age: 5,
     rescuerName: "John",
     petDescription: "this is a description of pet1",
   },
@@ -13,7 +13,7 @@ const petsData = [
     petName: "pet2",
     image:
       "https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "senior2",
+    age: 68,
     rescuerName: "John2",
     petDescription: "this is a description of pet2",
   },
@@ -22,7 +22,7 @@ const petsData = [
     petName: "pet3",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "adult3",
+    age: 12,
     rescuerName: "John3",
     petDescription: "this is a description of pet3",
   },
@@ -31,7 +31,7 @@ const petsData = [
     petName: "pet4",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "senior4",
+    age: 18,
     rescuerName: "John4",
     petDescription: "this is a description of pet4",
   },
@@ -40,7 +40,7 @@ const petsData = [
     petName: "pet5",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "senior5",
+    age: 24,
     rescuerName: "John5",
     petDescription: "this is a description of pet5",
   },
@@ -49,7 +49,7 @@ const petsData = [
     petName: "pet6",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "puppy6",
+    age: 80,
     rescuerName: "John6",
     petDescription: "this is a description of pet6",
   },
@@ -58,7 +58,7 @@ const petsData = [
     petName: "pet7",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "adult7",
+    age: 28,
     rescuerName: "John7",
     petDescription: "this is a description of pet7",
   },
@@ -76,7 +76,7 @@ const petsData = [
     petName: "pet9",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "adult9",
+    age: 14,
     rescuerName: "John9",
     petDescription: "this is a description of pet9",
   },
@@ -85,7 +85,7 @@ const petsData = [
     petName: "pet10",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "puppy10",
+    age: 4,
     rescuerName: "John10",
     petDescription: "this is a description of pet10",
   },
@@ -94,7 +94,7 @@ const petsData = [
     petName: "pet11",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    age: "adult11",
+    age: 6,
     rescuerName: "John11",
     petDescription: "this is a description of pet11",
   },

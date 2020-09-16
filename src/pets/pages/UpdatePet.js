@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Input from "../../UI/FormElements/Input";
@@ -7,10 +7,13 @@ import Button from "../../UI/Elements/Button";
 import PETS_DATA from "../../shared/util/Mock/petsData";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
-// import styles from "./UpdatePet.module.css";
 
 const UpdatePet = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const petId = useParams().petId;
+
+  const identifiedPet = PETS_DATA.find((p) => p.id === +petId);
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -34,90 +37,91 @@ const UpdatePet = (props) => {
     false
   );
 
-  const identifiedPet = PETS_DATA.find((p) => p.id === +petId);
-
   useEffect(() => {
     if (identifiedPet) {
       setFormData(
         {
           petName: {
             value: identifiedPet.petName,
-            isValid: true,
+            isValid: false,
           },
           age: {
             value: identifiedPet.age,
-            isValid: true,
+            isValid: false,
           },
           rescuerName: {
             value: identifiedPet.rescuerName,
-            isValid: true,
+            isValid: false,
           },
           petDescription: {
             value: identifiedPet.petDescription,
-            isValid: true,
+            isValid: false,
           },
         },
         true
       );
     }
+    setIsLoading(false);
   }, [setFormData, identifiedPet]);
-
-  // const petUpdateSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(formState.inputs);
-  // };
-
-  console.log(formState);
 
   if (!identifiedPet) {
     return <h1>No hay pets</h1>;
   }
 
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
-    <form action="">
-      <Input
-        id="petName"
-        element="input"
-        type="text"
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Ingresa el nombre de la mascota"
-        onInput={inputHandler}
-        initialValue={formState.inputs.petName.value}
-        initialValid={formState.inputs.petName.isValid}
-      />
-      <Input
-        id="age"
-        element="input"
-        type="number"
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Ingresa la edad de la mascota"
-        onInput={inputHandler}
-        initialValue={formState.inputs.age.value}
-        initialValid={formState.inputs.age.isValid}
-      />
-      <Input
-        id="rescuerName"
-        element="input"
-        type="text"
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Ingresa tu nombre"
-        onInput={inputHandler}
-        initialValue={formState.inputs.rescuerName.value}
-        initialValid={formState.inputs.rescuerName.isValid}
-      />
-      <Input
-        id="petDescription"
-        element="textarea"
-        type="text"
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Ingresa la descripción y/o historia del peludo"
-        onInput={inputHandler}
-        initialValue={formState.inputs.petDescription.value}
-        initialValid={formState.inputs.petDescription.isValid}
-      />
-      <Button>Actualizar</Button>
-      <h1>{formState.inputs.petName.value}</h1>
-    </form>
+    formState.inputs.petName.value && (
+      <form action="">
+        <Input
+          id="petName"
+          element="input"
+          type="text"
+          validators={[VALIDATOR_REQUIRE()]}
+          placeholder="Nombre"
+          errorText="Ingresa el nombre de la mascota"
+          onInput={inputHandler}
+          initialValue={formState.inputs.petName.value}
+          initialValid={formState.inputs.petName.isValid}
+        />
+        <Input
+          id="age"
+          element="input"
+          type="number"
+          validators={[VALIDATOR_REQUIRE()]}
+          placeholder="Edad en meses"
+          errorText="Ingresa la edad de la mascota"
+          onInput={inputHandler}
+          initialValue={formState.inputs.age.value}
+          initialValid={formState.inputs.age.isValid}
+        />
+        <Input
+          id="rescuerName"
+          element="input"
+          type="text"
+          validators={[VALIDATOR_REQUIRE()]}
+          placeholder="Nombre del rescatista"
+          errorText="Ingresa tu nombre"
+          onInput={inputHandler}
+          initialValue={formState.inputs.rescuerName.value}
+          initialValid={formState.inputs.rescuerName.isValid}
+        />
+        <Input
+          id="petDescription"
+          element="textarea"
+          type="text"
+          validators={[VALIDATOR_REQUIRE()]}
+          placeholder="Descripción o historia del peludo"
+          errorText="Ingresa la descripción y/o historia del peludo"
+          onInput={inputHandler}
+          initialValue={formState.inputs.petDescription.value}
+          initialValid={formState.inputs.petDescription.isValid}
+        />
+        <Button>Actualizar</Button>
+      </form>
+    )
   );
 };
 

@@ -35,7 +35,6 @@ const App = () => {
         <Route path="/:petId/pet">
           <Pet />
         </Route>
-        <Route path="/:userId/user">{/* <User /> */}</Route>
         <Route path="/pets/new">
           <NewPet />
         </Route>

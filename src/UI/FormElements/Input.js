@@ -48,35 +48,26 @@ const Input = (props) => {
     });
   };
 
-  let inputElement;
-  switch (props.element) {
-    case "input":
-      inputElement = (
-        <input
-          id={props.id}
-          type={props.type}
-          placeholder={props.placeholder}
-          onChange={changeHandler}
-          onBlur={touchHandler}
-          value={inputState.value}
-        />
-      );
-      break;
-    case "textarea":
-      inputElement = (
-        <textarea
-          id={props.id}
-          rows={props.rows || 3}
-          placeholder={props.placeholder}
-          onChange={changeHandler}
-          onBlur={touchHandler}
-          value={inputState.value}
-        />
-      );
-      break;
-    default:
-      break;
-  }
+  const inputElement =
+    props.element === "input" ? (
+      <input
+        id={props.id}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      />
+    ) : (
+      <textarea
+        id={props.id}
+        rows={props.rows || 3}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      />
+    );
 
   return (
     <div className={styles.input}>
