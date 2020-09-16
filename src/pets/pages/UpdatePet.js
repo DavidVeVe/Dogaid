@@ -43,19 +43,19 @@ const UpdatePet = (props) => {
         {
           petName: {
             value: identifiedPet.petName,
-            isValid: false,
+            isValid: true,
           },
           age: {
             value: identifiedPet.age,
-            isValid: false,
+            isValid: true,
           },
           rescuerName: {
             value: identifiedPet.rescuerName,
-            isValid: false,
+            isValid: true,
           },
           petDescription: {
             value: identifiedPet.petDescription,
-            isValid: false,
+            isValid: true,
           },
         },
         true
@@ -96,17 +96,6 @@ const UpdatePet = (props) => {
           onInput={inputHandler}
           initialValue={formState.inputs.age.value}
           initialValid={formState.inputs.age.isValid}
-        />
-        <Input
-          id="rescuerName"
-          element="input"
-          type="text"
-          validators={[VALIDATOR_REQUIRE()]}
-          placeholder="Nombre del rescatista"
-          errorText="Ingresa tu nombre"
-          onInput={inputHandler}
-          initialValue={formState.inputs.rescuerName.value}
-          initialValid={formState.inputs.rescuerName.isValid}
         />
         <Input
           id="petDescription"

@@ -10,7 +10,7 @@ const MainNavigation = (props) => {
     <Fragment>
       <MainHeader>
         <h1 className={styles.home__link}>
-          <Link to="/">Dog-Aid</Link>
+          <Link to="/">Pet Aid</Link>
         </h1>
         <nav>
           <NavLinks />

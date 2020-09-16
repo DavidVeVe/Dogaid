@@ -4,7 +4,7 @@ import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
-// import styles from "./NewPet.module.css";
+import styles from "./NewPet.module.css";
 
 const NewPet = (props) => {
   const [formState, inputHandler] = useForm(
@@ -28,11 +28,11 @@ const NewPet = (props) => {
 
   return (
     <form action="" onSubmit={submitHandler}>
+      <label style={{ color: "white" }}>Información de la mascota:</label>
       <Input
         element="input"
         type="text"
         placeholder="Nombre"
-        name="petName"
         id="petName"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
@@ -42,31 +42,38 @@ const NewPet = (props) => {
         element="input"
         type="number"
         placeholder="Edad"
-        name="age"
         id="age"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa la edad del peludo"
       />
       <Input
-        element="input"
-        type="text"
-        placeholder="Nombre de rescatista"
-        name="rescuerName"
-        id="rescuerName"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
-        errorText="Ingresa tu nombre"
-      />
-      <Input
         element="textarea"
         type="text"
-        placeholder="Ingresa la descripción y/o historia del peludo. Ejemplo: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        name="petDescription"
+        placeholder="Acerca de la mascota"
         id="petDescription"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa la descripción y/o historia del peludo"
+      />
+      <label style={{ color: "white" }}>Contacto</label>
+      <Input
+        element="input"
+        type="email"
+        placeholder="Tu email"
+        id="email"
+        onInput={inputHandler}
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Ingresa un email válido"
+      />
+      <Input
+        element="input"
+        type="tel"
+        placeholder="Tu número de teléfono"
+        id="phone"
+        onInput={inputHandler}
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Ingresa un número de telefono válido"
       />
       <Button>Publicar</Button>
     </form>

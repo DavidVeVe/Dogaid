@@ -13,9 +13,6 @@ const PetItem = (props) => {
         <img src={props.image} alt="pet" />
         <h3>{props.petName}</h3>
         <h4>{props.age}</h4>
-        <h5>
-          Rescuer: <span>{props.rescuerName}</span>
-        </h5>
         <p>{props.about}</p>
         <div className={styles.petItemBtns}>
           {isAuthenticated && <Button to={`/pets/${props.id}`}>Editar</Button>}
