@@ -15,7 +15,7 @@ const PetsList = (props) => {
             image={pet.image}
             age={pet.age}
             rescuerName={pet.rescuerName}
-            about={pet.about}
+            petDescription={pet.petDescription}
             className={props.itemClassname}
             yearsOld={pet.yearsOld}
             showInfo={props.showInfo}

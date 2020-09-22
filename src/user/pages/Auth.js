@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
 import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
@@ -34,21 +34,45 @@ const AuthForm = (props) => {
 
   return (
     <form action="" onSubmit={submitHandler}>
+      {!isLoginMode && (
+        <Fragment>
+          <Input
+            label="Nombre"
+            element="input"
+            type="text"
+            placeholder="Ingresa tu nombre"
+            id="recuerName"
+            onInput={inputHandler}
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Ingresa tu nombre"
+          />
+          <Input
+            label="Apellido"
+            element="input"
+            type="text"
+            placeholder="Ingresa tu apellido"
+            id="rescuerLastname"
+            onInput={inputHandler}
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Ingresa tu apellido"
+          />
+        </Fragment>
+      )}
       <Input
+        label="Email"
         element="input"
         type="email"
-        placeholder="Correo electrónico"
-        name="email"
+        placeholder="Ingresa tu correo electrónico"
         id="email"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
         errorText="Ingresa un correo valido"
       />
       <Input
+        label="Contraseña"
         element="input"
         type="password"
-        placeholder="Contraseña"
-        name="password"
+        placeholder="Ingresa tu contraseña"
         id="password"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}

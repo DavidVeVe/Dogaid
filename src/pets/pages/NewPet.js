@@ -27,9 +27,10 @@ const NewPet = (props) => {
   };
 
   return (
-    <form action="" onSubmit={submitHandler}>
-      <label style={{ color: "white" }}>Información de la mascota:</label>
+    <form action="" onSubmit={submitHandler} className={styles.newPet__form}>
+      <p>Información de la mascota:</p>
       <Input
+        label="Nombre de la mascota"
         element="input"
         type="text"
         placeholder="Nombre"
@@ -39,6 +40,7 @@ const NewPet = (props) => {
         errorText="Ingresa el nombre del peludo"
       />
       <Input
+        label="Edad en meses"
         element="input"
         type="number"
         placeholder="Edad"
@@ -48,6 +50,7 @@ const NewPet = (props) => {
         errorText="Ingresa la edad del peludo"
       />
       <Input
+        label="Historia de la mascota"
         element="textarea"
         type="text"
         placeholder="Acerca de la mascota"
@@ -56,17 +59,30 @@ const NewPet = (props) => {
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa la descripción y/o historia del peludo"
       />
-      <label style={{ color: "white" }}>Contacto</label>
+      <p>Contacto</p>
+
       <Input
+        label="Nombre"
+        element="input"
+        type="text"
+        placeholder="Ingresa tu nombre"
+        id="rescuerName"
+        onInput={inputHandler}
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Ingresa tu nombre"
+      />
+      <Input
+        label="Email"
         element="input"
         type="email"
-        placeholder="Tu email"
+        placeholder="Ingresa tu email"
         id="email"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Ingresa un email válido"
       />
       <Input
+        label="Teléfono"
         element="input"
         type="tel"
         placeholder="Tu número de teléfono"

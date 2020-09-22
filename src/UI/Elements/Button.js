@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import styles from "./Button.module.css";
+import styles from "./Button.module.css";
 
 const Button = (props) => {
   let button;
@@ -23,7 +23,7 @@ const Button = (props) => {
   }
   return (
     <button
-      className={props.className}
+      className={[styles.btn__component, props.className].join(" ")}
       onClick={props.onClick}
       disabled={props.disabled}
       type={props.type}

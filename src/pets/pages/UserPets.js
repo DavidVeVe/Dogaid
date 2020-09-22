@@ -1,13 +1,24 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import PetsList from "../components/PetsList";
 
 import PETS_DATA from "../../shared/util/Mock/petsData";
 
-import "./UserPets.module.css";
+import styles from "./UserPets.module.css";
 
 const UserPets = (props) => {
-  return <PetsList showInfo items={PETS_DATA} />;
+  const rescuerName = useParams().userId;
+
+  const loadedPets = PETS_DATA.filter((pet) => pet.rescuerName === rescuerName);
+
+  return (
+    <PetsList
+      showInfo
+      items={loadedPets}
+      itemClassname={styles.petItem__cardMargin}
+    />
+  );
 };
 
 export default UserPets;

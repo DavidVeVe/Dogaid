@@ -6,6 +6,7 @@ const petsData = [
     petDescription: "this is a description of pet1",
     image:
       "https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "John",
     email: "John@test.com",
     phone: 33234363,
   },
@@ -16,6 +17,7 @@ const petsData = [
     petDescription: "this is a description of pet2",
     image:
       "https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "John",
     email: "John2@test.com",
     phone: 33234363,
   },
@@ -26,6 +28,7 @@ const petsData = [
     petDescription: "this is a description of pet3",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "John",
     email: "John3@test.com",
     phone: 33234363,
   },
@@ -36,6 +39,7 @@ const petsData = [
     petDescription: "this is a description of pet4",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Marie",
     email: "John4@test.com",
     phone: 33234363,
   },
@@ -46,6 +50,7 @@ const petsData = [
     petDescription: "this is a description of pet5",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Marie",
     email: "John5@test.com",
     phone: 33234363,
   },
@@ -56,6 +61,7 @@ const petsData = [
     petDescription: "this is a description of pet6",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Marie",
     email: "John6@test.com",
     phone: 33234363,
   },
@@ -66,6 +72,7 @@ const petsData = [
     petDescription: "this is a description of pet7",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Denna",
     email: "John7@test.com",
     phone: 33234363,
   },
@@ -76,6 +83,7 @@ const petsData = [
     petDescription: "this is a description of pet8",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Denna",
     email: "John8@test.com",
     phone: 33234363,
   },
@@ -86,6 +94,7 @@ const petsData = [
     petDescription: "this is a description of pet9",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Denna",
     email: "John9@test.com",
     phone: 33234363,
   },
@@ -96,6 +105,7 @@ const petsData = [
     petDescription: "this is a description of pet10",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Dom",
     email: "John10@test.com",
     phone: 33234363,
   },
@@ -106,6 +116,7 @@ const petsData = [
     petDescription: "this is a description of pet11",
     image:
       "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    rescuerName: "Dom",
     email: "John11@test.com",
     phone: 33234363,
   },

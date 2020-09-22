@@ -1,0 +1,30 @@
+.petCta__wrapper {
+  width: 40%;
+  height: 150px;
+  background-color: #303841;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.petCta__bottom__btns {
+  width: 100%;
+}
+
+.petCta__btn {
+  width: 50%;
+  text-transform: uppercase;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+.petCta__bottom_btn {
+  width: 50%;
+  height: 60px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid white;
+}

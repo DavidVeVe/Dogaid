@@ -1,0 +1,15 @@
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.input__wrapper input,
+.input__wrapper textarea {
+  width: 100%;
+}
+
+.input__wrapper label {
+  color: white;
+}

@@ -1,7 +1,11 @@
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
-  background-color: #222222;
+  background-color: #eeeeee;
+}
+
+body * {
+  box-sizing: border-box;
 }
 
 code {

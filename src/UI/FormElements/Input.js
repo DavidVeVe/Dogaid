@@ -70,7 +70,8 @@ const Input = (props) => {
     );
 
   return (
-    <div className={styles.input}>
+    <div className={styles.input__wrapper}>
+      <label>{props.label}</label>
       {inputElement}
       {!inputState.isValid && inputState.isTouched && (
         <span>{props.errorText}</span>
