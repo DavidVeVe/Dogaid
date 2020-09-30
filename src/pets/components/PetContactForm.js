@@ -1,19 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 
+import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
 
-import styles from "./PetContactCta.module.css";
+const PetContactForm = (props) => {
+  const [authenticated, setAuthenticated] = useState(true);
 
-const PetContactCta = (props) => {
-  return (
-    <div className={styles.petCta__wrapper}>
-      <Button className={styles.petCta__btn}>Ask about {props.petName}</Button>
-      <div className={styles.petCta__bottom__btns}>
-        <Button className={styles.petCta__bottom_btn}>Donate</Button>
-        <Button className={styles.petCta__bottom_btn}>Share</Button>
-      </div>
-    </div>
-  );
+  let askAboutForm;
+
+  !authenticated
+    ? (askAboutForm = (
+        <form action="">
+          <Input
+            element="input"
+            type="text"
+            placeholder="Enter your name"
+            id="name"
+            label="Your name"
+            errorText="Please enter your name"
+            onInput={() => {}}
+          />
+          <Input
+            element="input"
+            type="text"
+            placeholder="Enter your lastname"
+            id="lastName"
+            label="Your lastname"
+            errorText="Please enter your lastname"
+            onInput={() => {}}
+          />
+          <Input
+            element="textarea"
+            type="text"
+            placeholder="Enter your message..."
+            id="message"
+            label="Message"
+            errotText="Please enter your message"
+            onInput={() => {}}
+          />
+        </form>
+      ))
+    : (askAboutForm = (
+        <form action="">
+          <Input
+            element="textarea"
+            type="text"
+            placeholder="Enter your message..."
+            id="message"
+            label="Message"
+            errotText="Please enter your message"
+            onInput={() => {}}
+          />
+        </form>
+      ));
+
+  return askAboutForm;
 };
 
-export default PetContactCta;
+export default PetContactForm;

@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import PetItem from "../components/PetItem";
-import PetContactCta from "../components/PetContactForm";
+import PetContactCta from "../components/PetContactCta";
 
 import PETS_DATA from "../../shared/util/Mock/petsData";
 
@@ -17,33 +17,22 @@ const Pet = (props) => {
     return pet.id === +petId;
   });
 
-  console.log(loadedPet);
-
-  return (
-    // <PetsList
-    //   items={loadedPet}
-    //   className={styles.pet}
-    //   itemClassname={styles.petItem__card}
-    //   showInfo
-    // />
-
-    loadedPet.map((pet) => {
-      return (
-        <div className={styles.petPage__wrapper}>
-          <PetItem
-            key={pet.id}
-            image={pet.image}
-            petName={pet.petName}
-            age={pet.age}
-            petDescription={pet.petDescription}
-            className={styles.petItem__card}
-            showInfo
-          />
-          <PetContactCta petName={pet.petName} />
-        </div>
-      );
-    })
-  );
+  return loadedPet.map((pet) => {
+    return (
+      <div className={styles.petPage__wrapper}>
+        <PetItem
+          key={pet.id}
+          image={pet.image}
+          petName={pet.petName}
+          age={pet.age}
+          petDescription={pet.petDescription}
+          className={styles.petItem__card}
+          showInfo
+        />
+        <PetContactCta petData={pet} />
+      </div>
+    );
+  });
 };
 
 export default Pet;

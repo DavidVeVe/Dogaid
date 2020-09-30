@@ -23,9 +23,6 @@ const App = () => {
     <Router>
       <MainNavigation />
       <Switch>
-        {/* <Route path="/users">
-          <Users />
-        </Route> */}
         <Route path="/auth">
           <Auth />
         </Route>
