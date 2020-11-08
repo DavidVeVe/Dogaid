@@ -64,6 +64,12 @@ const UpdatePet = (props) => {
     setIsLoading(false);
   }, [setFormData, identifiedPet]);
 
+  const submitPetUpdate = (e) => {
+    e.preventDefault();
+    alert("Pet updated");
+    console.log(formState.inputs);
+  };
+
   if (!identifiedPet) {
     return <h1>No hay pets</h1>;
   }
@@ -73,7 +79,7 @@ const UpdatePet = (props) => {
   }
 
   return (
-    <form action="">
+    <form onSubmit={submitPetUpdate}>
       <Input
         label="Nombre de la mascota"
         id="petName"
@@ -110,6 +116,7 @@ const UpdatePet = (props) => {
         initialValue={formState.inputs.petDescription.value}
         initialValid={formState.inputs.petDescription.isValid}
       />
+      <Button to={`/${petId}/pet`}>Cancelar</Button>
       <Button>Actualizar</Button>
     </form>
   );

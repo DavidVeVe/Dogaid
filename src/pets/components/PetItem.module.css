@@ -3,7 +3,7 @@
 }
 
 .petItem__card {
-  width: 300px;
+  width: 250px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -52,4 +52,25 @@ h4 {
 
 .petItem__card span {
   font-weight: normal;
+}
+.petItem_image {
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.petItem__card_image {
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pet__description {
+  padding: 0 50px;
+  text-align: justify;
+  margin: 20px 0;
 }

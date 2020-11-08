@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import styles from "./Button.module.css";
 
 const Button = (props) => {
-  let button;
-
   if (props.href) {
     return (
       <a href={props.href} className={props.className}>
@@ -23,10 +21,10 @@ const Button = (props) => {
   }
   return (
     <button
+      type={props.type}
       className={[styles.btn__component, props.className].join(" ")}
       onClick={props.onClick}
       disabled={props.disabled}
-      type={props.type}
     >
       {props.children}
     </button>

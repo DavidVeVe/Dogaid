@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 
 import Input from "../../UI/FormElements/Input";
 import Button from "../../UI/Elements/Button";
@@ -8,12 +8,14 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 // import styles from "./Auth.module.css";
 
 const AuthForm = (props) => {
-  const [isLoginMode, setIsLoginMode] = useState(true);
+  const auth = useContext(AuthContext);
 
-  const [formState, inputHandler] = useForm(
+  const [isLoginMode, setIsLoginMode] = useState(true);
+  const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
         value: "",
@@ -27,59 +29,96 @@ const AuthForm = (props) => {
     false
   );
 
+  const switchModeHandler = () => {
+    if (!isLoginMode) {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: undefined,
+          lastname: undefined,
+        },
+        formState.inputs.email.isValid && formState.inputs.password.isValid
+      );
+    } else {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: {
+            value: "",
+            isValid: false,
+          },
+          lastname: {
+            value: "",
+            isValid: false,
+          },
+        },
+        false
+      );
+    }
+    setIsLoginMode((prevMode) => !prevMode);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(formState.inputs);
+    auth.login();
   };
 
   return (
-    <form action="" onSubmit={submitHandler}>
-      {!isLoginMode && (
-        <Fragment>
-          <Input
-            label="Nombre"
-            element="input"
-            type="text"
-            placeholder="Ingresa tu nombre"
-            id="recuerName"
-            onInput={inputHandler}
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Ingresa tu nombre"
-          />
-          <Input
-            label="Apellido"
-            element="input"
-            type="text"
-            placeholder="Ingresa tu apellido"
-            id="rescuerLastname"
-            onInput={inputHandler}
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Ingresa tu apellido"
-          />
-        </Fragment>
-      )}
-      <Input
-        label="Email"
-        element="input"
-        type="email"
-        placeholder="Ingresa tu correo electrónico"
-        id="email"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
-        errorText="Ingresa un correo valido"
-      />
-      <Input
-        label="Contraseña"
-        element="input"
-        type="password"
-        placeholder="Ingresa tu contraseña"
-        id="password"
-        onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
-        errorText="Ingresa una contraseña de minimo 8 caracteres"
-      />
-      <Button>{isLoginMode ? "Log in" : "Registrarme"}</Button>
-    </form>
+    <Fragment>
+      <form onSubmit={submitHandler}>
+        {!isLoginMode && (
+          <Fragment>
+            <Input
+              label="Name"
+              element="input"
+              type="text"
+              placeholder="Type your name"
+              id="name"
+              onInput={inputHandler}
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please type your name"
+            />
+            <Input
+              label="Lastname"
+              element="input"
+              type="text"
+              placeholder="Type your lastname"
+              id="lastname"
+              onInput={inputHandler}
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please type your lastname"
+            />
+          </Fragment>
+        )}
+        <Input
+          label="Email"
+          element="input"
+          type="email"
+          placeholder="Type your email"
+          id="email"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
+          errorText="Please type a valid email"
+        />
+        <Input
+          label="Password"
+          element="input"
+          type="password"
+          placeholder="Type your password"
+          id="password"
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
+          errorText="Please type a minimum 8 characters password"
+        />
+        <Button type="submit" disabled={!formState.isValid}>
+          {isLoginMode ? "Log in" : "Sign up"}
+        </Button>
+      </form>
+      <span onClick={switchModeHandler}>
+        {!isLoginMode ? "Already registered?" : "Need to register?"}
+      </span>
+    </Fragment>
   );
 };
 
